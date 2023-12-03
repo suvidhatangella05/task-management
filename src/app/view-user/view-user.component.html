@@ -1,0 +1,24 @@
+<div *ngFor ="let list of users,let i = index">
+    <mat-expansion-panel>
+            <mat-expansion-panel-header>            
+                <mat-panel-title>
+                    {{list.UserName}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    {{list.Email}}
+                  </mat-panel-description>
+                  <button mat-button color="primary" (click)="onupdate(list._id)" >UPDATE</button>             
+                  <button mat-button color="primary" (click)="onDelete(list._id)" >DELETE</button>
+            </mat-expansion-panel-header>
+            <div>{{list.list_desc}}</div>
+            <div  style="display: contents; border: 1px solid red;">
+              <mat-form-field>
+                <input matInput [(ngModel)]="Userdetails.UserName" placeholder="Enter list name" [formControl]="UserName">
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput [(ngModel)]="Userdetails.Email" placeholder="Enter list Description" [formControl]="Email">
+                </mat-form-field>
+              
+            </div>
+        </mat-expansion-panel>  
+      </div>

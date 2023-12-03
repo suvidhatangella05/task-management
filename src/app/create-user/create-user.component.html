@@ -1,0 +1,30 @@
+<div>
+    <mat-card class="matcard">
+        <mat-card-header>
+            <h1>
+                Create User Form
+            </h1>    
+        </mat-card-header>
+    <table style="width: 100%; display: contents;">
+        <div style="display: contents;">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Enter the Name here" [(ngModel)]="Userdetails.UserName" [formControl]="UserName" required >
+              </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter the Email " [(ngModel)]="Userdetails.Email" [formControl]="Email" required >
+          </mat-form-field>
+          <!-- <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter the Password here" [formControl]="Password" required >
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput placeholder="Confirm Password here" [formControl]="confirmpassword" required >
+          </mat-form-field> -->
+        </div>
+      </table>
+      <button mat-raised-button color="primary" (click)="createuser()">Create</button>
+    </mat-card>
+</div>

@@ -1,0 +1,41 @@
+<div *ngFor ="let task of tasks,let i = index">
+<mat-expansion-panel>
+        <mat-expansion-panel-header>            
+            <mat-panel-title>
+                {{task.taskname}}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{task.taskdesc}}
+                    -----
+                {{task.tasksstatus}}
+              </mat-panel-description>
+              <button mat-button color="primary" (click)="onupdate(task._id)" >UPDATE</button>             
+              <button mat-button color="primary" (click)="onDelete(task._id)" >DELETE</button>
+        </mat-expansion-panel-header>
+        <div>{{task.taskpriority}}</div>
+        <div  style="display: contents; border: 1px solid red;">
+          <mat-form-field>
+            <input matInput [(ngModel)]="task_details.taskname" placeholder="Enter task name" [formControl]="taskname">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput [(ngModel)]="task_details.taskdesc" placeholder="Enter task Description" [formControl]="taskdesc">
+            </mat-form-field>
+          <mat-form-field>  
+            <mat-label>Priority</mat-label>
+            <mat-select [(ngModel)]="task_details.taskpriority">
+              <mat-option *ngFor="let option of options" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>  
+            <mat-label>Status</mat-label>
+            <mat-select [(ngModel)]="task_details.tasksstatus">
+              <mat-option *ngFor="let option of taskoptions" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+    </mat-expansion-panel>  
+  </div>

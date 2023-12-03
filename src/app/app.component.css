@@ -1,0 +1,96 @@
+.formclass{
+    display: list-item;
+ }
+ 
+ .Company_Mentor_Information {
+     min-width: 150px;
+     max-width: 400px;
+     width: 100%;
+   }
+   
+   .Fields_Form {
+     width: 100%;
+   }
+ 
+   .heading{
+     justify-content: center;
+     width: 50%;
+   }
+
+ 
+ 
+   .h1{
+     justify-content: center;
+     display: flex;
+     font-family: 'Times New Roman', Times, serif;
+     font-weight: 800;
+   }
+ 
+   .buttons{
+     display: flex;
+     justify-content: end;
+     margin-top: 3%;
+     width: 100%;
+   }
+ 
+   .Fields_Container {
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 16px; /* Add margin for spacing between containers */
+   }
+   
+   .Fields_Form {
+     display: flex;
+     align-items: center;
+     gap: 10px; /* Adjust the gap between label and input as needed */
+   }
+   
+   .mat-grid-list-left-align .mat-label {
+     text-align: left !important;
+   }
+
+   .matcard{
+    padding-top: 2%;
+    border-radius: 2%;
+    background: #e0e0e0;
+    /* box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff; */
+   }
+
+   .app-container {
+    height: 90%;
+    margin: 0;
+}  
+.app-sidenav {
+    width: 230px;
+    background: black;
+
+}
+.app-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-drawer-inner-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: black;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 5px;
+}
+
+.toolbar{
+  height: 60px;
+  border: 1px solid black;
+  background-color: black
+}
+
+
+
+.expansion_panel{
+ background-color: #e6e6e6;
+}
+   

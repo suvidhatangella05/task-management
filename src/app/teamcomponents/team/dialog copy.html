@@ -1,0 +1,47 @@
+<div mat-dialog-content>
+    <table>
+        <tr><td>
+        <mat-label>Team Name </mat-label>
+</td><td>
+      <input matInput appearance="standard" [(ngModel)]="data.name" placeholder="Name">
+</td></tr>
+<tr><td>
+        <mat-label>Team Email </mat-label>
+    </td><td>
+      <input matInput [(ngModel)]="data.email" placeholder="Email">
+</td></tr>
+<tr><td>
+        <mat-label>Team description </mat-label>
+    </td><td>
+      <input matInput [(ngModel)]="data.description" placeholder="Description">
+    </td></tr>
+    <tr><td> 
+        <mat-label>Enter new user </mat-label>
+    </td><td>
+        <input matInput [(ngModel)]="newUser">
+    </td><td>    
+        <mat-icon (click)="addUserToTeam()">add</mat-icon>
+
+    </td></tr>
+    <tr>  
+          <div *ngFor="let item of data.users; let i = index">
+            <td>
+            <label>
+              <li type="list" (change)="onCheckboxChange($event,i)" > {{ data.users.at(i) }}
+            
+            </label>
+        </td>
+            <td>    
+
+                <mat-icon (click)="deleteUserFromTeam(i)">delete</mat-icon>
+                </td>
+          </div>   
+       </tr>   
+        </table>      
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="true" (click)="postdata()"cdkFocusInitial>
+        {{data.id=== 0 ? 'create team' : 'update team'}}
+    </button>
+  </div>

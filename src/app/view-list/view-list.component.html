@@ -1,0 +1,51 @@
+<div *ngFor ="let list of lists,let i = index">
+<mat-expansion-panel>
+        <mat-expansion-panel-header>            
+            <mat-panel-title>
+                {{list.list_name}}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{list.list_priority}}
+              </mat-panel-description>
+              <button mat-button color="primary" (click)="onupdate(list._id)" >UPDATE</button>             
+              <button mat-button color="primary" (click)="onDelete(list._id)" >DELETE</button>
+        </mat-expansion-panel-header>
+        <div>{{list.list_desc}}</div>
+        <div  style="display: contents; border: 1px solid red;">
+          <mat-form-field>
+            <input matInput [(ngModel)]="Create_list_details.list_name" placeholder="Enter list name" [formControl]="list_name">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput [(ngModel)]="Create_list_details.list_desc" placeholder="Enter list Description" [formControl]="list_desc">
+            </mat-form-field>
+          <mat-form-field>  
+            <mat-label>Priority</mat-label>
+            <mat-select [(ngModel)]="Create_list_details.list_priority">
+              <mat-option *ngFor="let option of options" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+    </mat-expansion-panel>  
+  </div>
+    <!-- <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                List 2
+              </mat-panel-title>
+              <mat-panel-description>
+                Prority - medium
+              </mat-panel-description>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>  
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                List 3
+              </mat-panel-title>
+              <mat-panel-description>
+                Prority - high
+              </mat-panel-description>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>   -->

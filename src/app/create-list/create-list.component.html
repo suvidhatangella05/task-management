@@ -1,0 +1,33 @@
+<div class="divcard">
+    <mat-card class="matcard">
+      <div style="display: flex;">
+        <h2>Create a List</h2>
+        <!-- <button mat-icon-button (click)="addItem()">
+          <mat-icon>add</mat-icon>
+        </button> -->
+      </div>
+  
+      <div  style="display: contents; border: 1px solid red;">
+        <mat-form-field>
+          <input matInput [(ngModel)]="Create_list_details.list_name" placeholder="Enter list name" [formControl]="list_name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [(ngModel)]="Create_list_details.list_desc" placeholder="Enter list Description" [formControl]="list_desc">
+          </mat-form-field>
+        <mat-form-field>  
+          <mat-label>Priority</mat-label>
+          <mat-select [(ngModel)]="Create_list_details.list_priority">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- <button style="width: 20%;"  mat-raised-button (click)="removeItem(i)">
+            delete
+        </button> -->
+      </div>
+  
+      <button mat-raised-button color="primary" (click)="createList()">Create</button>
+    </mat-card>
+  </div>
+  

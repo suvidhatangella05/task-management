@@ -1,0 +1,53 @@
+<h2> Teams Home</h2>
+<button mat-raised-button color="primary" (click)="addItem()">Create Team</button>
+<ng-toast [style]="{width:'300px'}"></ng-toast>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <!-- users Column -->
+  <ng-container matColumnDef="users">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Users </th>
+    <td mat-cell *matCellDef="let element">
+        <ul>
+          <li *ngFor="let user of element.users">{{ user }}</li>
+        </ul>
+      </td>
+          
+  </ng-container>
+
+  <!-- website Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon (click)="editteam(element)">edit</mat-icon>
+      <mat-icon (click)="deleteteam(element)">delete</mat-icon>
+
+    </td>
+    <td mat-cell *matCellDef="let element">
+      </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

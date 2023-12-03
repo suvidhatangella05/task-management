@@ -1,0 +1,57 @@
+<h2> Team Task Management Home</h2>
+<button mat-raised-button color="primary" (click)="addTask()">Create Task</button>
+<ng-toast [style]="{width:'300px'}"></ng-toast>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- email Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <!-- users Column -->
+  <ng-container matColumnDef="dueDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.dueDate |  date: 'short'}} </td>
+       
+  </ng-container>
+
+  <!-- website Column -->
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Priority </th>
+    <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
+  </ng-container>
+  <ng-container matColumnDef="teamName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Team Assigned </th>
+    <td mat-cell *matCellDef="let element"> {{element.teamName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="state">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Current State </th>
+    <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon (click)="edittask(element)">edit</mat-icon>
+      <mat-icon (click)="deletetask(element)">delete</mat-icon>
+
+    </td>
+    <td mat-cell *matCellDef="let element">
+      </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngStyle]="{'background-color': getColor(row)}"></tr>
+</table>
+
